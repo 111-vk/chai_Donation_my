@@ -1,5 +1,4 @@
-name: Dispatch to Docs Repo
-
+name: Trigger Docs Workflow
 on:
   push:
     branches:
@@ -9,10 +8,12 @@ on:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+
     steps:
       - name: Trigger workflow in docs repo
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.DISPATCH_TOKEN }}
-          repository: nios-students/docs
-          event-type: trigger-workflow
+          repository: 111-vk/nios_docs
+
+          event-type: trigger-from-chai
